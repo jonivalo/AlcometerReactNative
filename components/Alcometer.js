@@ -121,7 +121,7 @@ export default function Alcometer() {
       onPress={calculate}
       mode='contained'
       color='#63d1eb'
-      >Press</Button>
+      >Press this buttone</Button>
       <Text style={[drunk <0.80 ? styles.Low : drunk < 1.80 ? styles.Middle : styles.High ]}>
           {drunk.toFixed(2)}
           </Text>
