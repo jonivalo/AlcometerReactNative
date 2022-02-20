@@ -1,5 +1,5 @@
 import React,{ useState } from 'react';
-import { ScrollView, SafeAreaView, Text } from 'react-native';
+import { ScrollView, SafeAreaView, Text, Alert } from 'react-native';
 import Radiobutton from './Radiobutton';
 import {Provider as PaperProvider, Button, TextInput } from 'react-native-paper';
 import {Picker} from '@react-native-picker/picker';
@@ -56,7 +56,14 @@ export default function Alcometer() {
 
     function calculate(){
     
+      const AlertWeight = () =>
+    Alert.alert(
+      'Please fill in the formt',
+      'Aftert that you can see the result',
+    );
+
       if (weight === '' || weight ==='0'){
+        AlertWeight()
         return;
       } else {
       let result = 0
@@ -101,7 +108,7 @@ export default function Alcometer() {
       options={genders} 
       onPress={(value) => {setGender(value)}}
     />
-    
+    <Text style={styles.field}>Bottles</Text>
       <Picker
             onValueChange = {(itemValue) => setBottle(itemValue)}
             selectedValue = {bottle} >
@@ -109,7 +116,7 @@ export default function Alcometer() {
                 <Picker.Item key = {index} label = {bottle.label} value = {bottle.value} />
               ))}
         </Picker>
-
+        <Text style={styles.field}>Time</Text>
         <Picker
             onValueChange = {(itemValue) => setTime(itemValue)}
             selectedValue = {time} >
@@ -121,7 +128,7 @@ export default function Alcometer() {
       onPress={calculate}
       mode='contained'
       color='#63d1eb'
-      >Press this buttone</Button>
+      >Press this button</Button>
       <Text style={[drunk <0.80 ? styles.Low : drunk < 1.80 ? styles.Middle : styles.High ]}>
           {drunk.toFixed(2)}
           </Text>
