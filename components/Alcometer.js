@@ -33,8 +33,7 @@ export default function Alcometer() {
       {label: '12 bottles', value: 12},
       {label: '13 bottles', value: 13},
       {label: '14 bottles', value: 14},
-      {label: '15 bottles', value: 15},
-      {label: '16 bottles', value: 16}
+      {label: '15 bottles', value: 15}
     ];
   
     const hours = [
@@ -51,15 +50,16 @@ export default function Alcometer() {
       {label: '11 hours', value: 11},
       {label: '12 hours', value: 12},
       {label: '13 hours', value: 13},
-      {label: '14 hours', value: 14}
+      {label: '14 hours', value: 14},
+      {label: '15 hours', value: 15}
     ];
 
     function calculate(){
     
       const AlertWeight = () =>
     Alert.alert(
-      'Please fill in the formt',
-      'Aftert that you can see the result',
+      'Could you kindly fill in your weight on the form?',
+      'Aftert that you can see the result how drunk you are after drinking',
     );
 
       if (weight === '' || weight ==='0'){
@@ -103,7 +103,7 @@ export default function Alcometer() {
     onChangeText={text => setWeight(text)}
     value={weight}
   />
-    
+    <Text style={styles.field}>Choose your gender</Text>
     <Radiobutton 
       options={genders} 
       onPress={(value) => {setGender(value)}}
